@@ -3,11 +3,11 @@ import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import { handleLogin } from "../actions/authenticateUser";
 
-const Login = ({ dispatch, IsLoggedIn }) => {
+const Login = ({ dispatch, loggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  if (IsLoggedIn) {
+  if (loggedIn) {
     return <Navigate to= "/"/>;
   }
 

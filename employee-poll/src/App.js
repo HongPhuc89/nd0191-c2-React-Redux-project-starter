@@ -15,9 +15,11 @@ function App({ dispatch, loggedIn }) {
 
   return (
     <div className="container mx-auto py-4">
+      {loggedIn && <Nav />}
       <Routes>
-        <Route path="/" exact element={<HomePage />} />
         <Route path="/login" exact element={<Login />} />
+        <Route path="/" exact element={<HomePage />} />
+
         <Route path="/404" exact element={<Error404 />} />
       </Routes>
     </div>
