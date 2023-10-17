@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import Nav from "./components/Nav";
+import { Route, Routes } from "react-router-dom";
+import { connect } from "react-redux";
+import Login from "./components/Login";
+import Error404 from "./components/Error404";
+import HomePage from "./components/Home";
+import { handleInitialData } from "./actions/initialData";
 
-function App() {
+function App({ dispatch, loggedIn }) {
+  useEffect(() => {
+    dispatch(handleInitialData());
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto py-4">
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/404" exact element={<Error404 />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ isAuthenticatedUser }) => ({
+  loggedIn: !!isAuthenticatedUser,
+});
+
+export default connect(mapStateToProps)(App);
