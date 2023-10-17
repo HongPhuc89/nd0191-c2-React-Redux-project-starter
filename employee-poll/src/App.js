@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Login from "./components/Login";
 import Error404 from "./components/Error404";
 import HomePage from "./components/Home";
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import { handleInitialData } from "./actions/initialData";
 
 function App({ dispatch, loggedIn }) {
@@ -18,7 +19,16 @@ function App({ dispatch, loggedIn }) {
       {loggedIn && <Nav />}
       <Routes>
         <Route path="/login" exact element={<Login />} />
-        <Route path="/" exact element={<HomePage />} />
+        <Route
+          path="/"
+          exact
+          element={
+            <AuthenticatedRoute>
+              {" "}
+              <HomePage />{" "}
+            </AuthenticatedRoute>
+          }
+        />
 
         <Route path="/404" exact element={<Error404 />} />
       </Routes>
