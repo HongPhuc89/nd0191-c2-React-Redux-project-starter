@@ -8,6 +8,9 @@ import Error404 from "./components/Error404";
 import HomePage from "./components/Home";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import { handleInitialData } from "./actions/initialData";
+import LeaderBoard from "./components/LeaderBoard";
+import NewPoll from "./components/NewPoll";
+import PollPage from "./components/PollPage";
 
 function App({ dispatch, loggedIn }) {
   useEffect(() => {
@@ -26,6 +29,34 @@ function App({ dispatch, loggedIn }) {
             <AuthenticatedRoute>
               {" "}
               <HomePage />{" "}
+            </AuthenticatedRoute>
+          }
+        />
+        <Route
+          path="/leader-board"
+          exact
+          element={
+            <AuthenticatedRoute>
+              {" "}
+              <LeaderBoard />{" "}
+            </AuthenticatedRoute>
+          }
+        />
+
+        <Route
+          path="/questions/:id"
+          element={
+            <AuthenticatedRoute>
+              <PollPage />
+            </AuthenticatedRoute>
+          }
+        />
+        <Route
+          path="/new"
+          exact
+          element={
+            <AuthenticatedRoute>
+              <NewPoll />
             </AuthenticatedRoute>
           }
         />
