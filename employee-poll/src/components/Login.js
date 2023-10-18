@@ -32,7 +32,7 @@ const Login = ({ dispatch, loggedIn }) => {
 
   return (
     <div>
-      <h1 data-testid="login-heading">Login</h1>
+      <h1 data-testid="login-heading">Employee Poll</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username</label>
