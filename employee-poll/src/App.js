@@ -67,8 +67,8 @@ function App({ dispatch, loggedIn }) {
   );
 }
 
-const mapStateToProps = ({ isAuthenticatedUser }) => ({
-  loggedIn: !!isAuthenticatedUser,
+const mapStateToProps = ({ authenticatedUser }) => ({
+  loggedIn: !!authenticatedUser,
 });
 
 export default connect(mapStateToProps)(App);
