@@ -25,14 +25,14 @@ const LeaderBoard = ({ users }) => {
         <tbody className="bg-white">
           {users.map((user) => (
             <tr key={user.id}>
-              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <td className="border p-4 pl-8">
               <UserInRow user={user}/>
 
               </td>
-              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <td className="border pl-8">
                 {Object.keys(user.answers).length}
               </td>
-              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <td className="border pl-8">
                 {user.questions.length}
               </td>
             </tr>
