@@ -81,8 +81,8 @@ const NewPoll = ({ dispatch }) => {
             disabled={isSubmitDisabled}
 
             className={`${
-              isSubmitDisabled ? "button-disabled" : "button-enabled"
-            }`}
+              isSubmitDisabled ? "bg-gray-200" : "bg-sky-500 hover:bg-sky-700"
+            } px-5 py-2.5 text-sm leading-5 rounded-md`}
           >
             Submit
           </button>

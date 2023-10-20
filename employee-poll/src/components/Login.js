@@ -8,6 +8,8 @@ const Login = ({ dispatch, loggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const isSubmitDisabled = !username || !password;
+
   if (loggedIn) {
     const urlParams = new URLSearchParams(window.location.search);
     const redirectUrl = urlParams.get("redirectTo");
@@ -74,10 +76,17 @@ const Login = ({ dispatch, loggedIn }) => {
               className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-              Login
-            </button>
+          <div className="mt-6 text-center">
+            <button
+            type="submit"
+            disabled={isSubmitDisabled}
+
+            className={`${
+              isSubmitDisabled ? "bg-gray-200" : "bg-sky-500 hover:bg-sky-700"
+            } px-5 py-2.5 text-sm leading-5 rounded-md`}
+          >
+            Login
+          </button>
           </div>
         </form>
       </div>

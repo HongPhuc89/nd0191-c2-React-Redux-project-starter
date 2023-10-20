@@ -3,34 +3,42 @@ import { connect } from "react-redux";
 const LeaderBoard = ({ users }) => {
   return (
     <div>
-      <h1 className="text-3xl font-bold mt-9">LeaderBoard</h1>
+      <div className="flex justify-center">
+        <h1 className="text-3xl font-bold mt-9">LeaderBoard</h1>
+      </div>
 
-      <table className="border-collapse table-auto w-full text-sm mt-6">
-        <thead className="table-header-group">
-          <tr className="table-row">
-            <th className="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+      <table className="border-collapse table-auto w-full mt-6">
+        <thead className="h-16 bg-gray-100">
+          <tr className="table-row font-large text-left text-slate-400">
+            <th className="border pl-8">
               User
             </th>
-            <th className="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+            <th className="border pl-8">
               Answered
             </th>
-            <th className="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+            <th className="border pl-8">
               Created
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white dark:bg-slate-800">
+        <tbody className="bg-white">
           {users.map((user) => (
             <tr key={user.id}>
-              <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-                <span className="font-bold">{user.name}</span>
+              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400 flex">
+              <div className="w-10 h-10">
+                <img src={user.avatarURL} alt="Avatar"  className="w-full h-full object-cover rounded-full"/>
+              </div>
+              <div className=" ml-4">
+              <span className="font-bold">{user.name}</span>
                 <br />
                 {user.id}
+              </div>
+
               </td>
-              <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {Object.keys(user.answers).length}
               </td>
-              <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {user.questions.length}
               </td>
             </tr>
