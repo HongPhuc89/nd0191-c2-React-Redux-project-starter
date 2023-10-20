@@ -7,6 +7,7 @@ import loginLogo from "./../asserts/images/loginLogo.png";
 const Login = ({ dispatch, loggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const isSubmitDisabled = !username || !password;
 
@@ -28,7 +29,10 @@ const Login = ({ dispatch, loggedIn }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(handleLogin(username, password));
+    const res = dispatch(handleLogin(username, password));
+    if (!res) {
+      setError("Invalid username or password");
+    }
     setUsername("");
     setPassword("");
   };
@@ -36,10 +40,13 @@ const Login = ({ dispatch, loggedIn }) => {
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 data-testid="login-heading" className="text-3xl font-semibold text-center text-black-700">
+        <h1
+          data-testid="login-heading"
+          className="text-3xl font-semibold text-center text-black-700"
+        >
           Employee Polls
         </h1>
-        <img src={loginLogo} alt="login logo"/>
+        <img src={loginLogo} alt="login logo" />
         <h1 className="text-3xl font-semibold text-center text-blue-700 underline mt-3">
           Sign in
         </h1>
@@ -57,6 +64,7 @@ const Login = ({ dispatch, loggedIn }) => {
               type="text"
               name="username"
               id="username"
+              data-testid="username"
               className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -73,22 +81,28 @@ const Login = ({ dispatch, loggedIn }) => {
               type="password"
               name="password"
               id="password"
+              data-testid="password"
               className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mt-6 text-center">
             <button
-            type="submit"
-            disabled={isSubmitDisabled}
-
-            className={`${
-              isSubmitDisabled ? "bg-gray-200" : "bg-sky-500 hover:bg-sky-700"
-            } px-5 py-2.5 text-sm leading-5 rounded-md select-none`}
-          >
-            Login
-          </button>
+              type="submit"
+              data-testid="submit"
+              disabled={isSubmitDisabled}
+              className={`${
+                isSubmitDisabled ? "bg-gray-200" : "bg-sky-500 hover:bg-sky-700"
+              } px-5 py-2.5 text-sm leading-5 rounded-md select-none`}
+            >
+              Login
+            </button>
           </div>
         </form>
+        {error && (
+          <div className="text-center text-red-500" data-testid="error-message">
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );
