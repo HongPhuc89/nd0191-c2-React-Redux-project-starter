@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import Card from "./Card";
 import QuestionList from "./QuestionList";
 
 const Dashboard = ({ authenticatedUser, questions, users }) => {
