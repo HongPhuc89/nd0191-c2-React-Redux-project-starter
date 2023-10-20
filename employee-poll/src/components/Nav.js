@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleLogout } from "../actions/authenticateUser";
 
-const Nav = ({ dispatch, authenticatedUserId, authenticatedUserAvatar }) => {
+const Nav = ({ dispatch, authenticatedUserAvatar }) => {
   const logout = (e) => {
     e.preventDefault();
     dispatch(handleLogout());
@@ -37,7 +37,6 @@ const Nav = ({ dispatch, authenticatedUserId, authenticatedUserAvatar }) => {
 };
 
 const mapStateToProps = ({ authenticatedUser }) => ({
-  authenticatedUserId: authenticatedUser.id,
   authenticatedUserAvatar: authenticatedUser.avatarURL
 });
 

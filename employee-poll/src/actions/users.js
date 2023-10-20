@@ -23,7 +23,7 @@ export function addUserAnswer(authenticatedUser, questionId, answer) {
 export function addUserQuestion({author, id}) {
     return {
         type: ADD_USER_QUESTION,
-        author,
+        author: author.id,
         questionId: id,
     };
 }
