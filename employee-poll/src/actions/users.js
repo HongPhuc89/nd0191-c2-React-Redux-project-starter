@@ -12,9 +12,6 @@ export function initialUsers(users) {
 }
 
 export function addUserAnswer(authenticatedUser, questionId, answer) {
-    console.log(1, authenticatedUser)
-    console.log(2, questionId)
-    console.log(3, answer)
     return {
         type: ADD_USER_ANSWER,
         authenticatedUser,

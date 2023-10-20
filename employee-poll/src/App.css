@@ -1,0 +1,9 @@
+.button-enabled {
+  background-color: #3498db !important; /* Blue background for enabled state */
+  color: #ffffff; /* White text for enabled state */
+}
+
+.button-disabled {
+  background-color: #cccccc !important; /* Gray background for disabled state */
+  color: #888888; /* Lighter text for disabled state */
+}

@@ -8,6 +8,8 @@ const NewPoll = ({ dispatch }) => {
   const [firstOption, setFirstOption] = useState("");
   const [secondOption, setSecondOption] = useState("");
 
+  const isSubmitDisabled = !firstOption || !secondOption;
+
   const handleFirstOptionChange = (e) => {
     const value = e.target.value;
     setFirstOption(value);
@@ -26,7 +28,10 @@ const NewPoll = ({ dispatch }) => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mt-9">New Poll</h1>
+      <div className="flex justify-center">
+      <h1 className="text-3xl font-bold mt-9 mb-9">Create Your Own Poll</h1>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className="mt-3">
           <label
@@ -70,11 +75,14 @@ const NewPoll = ({ dispatch }) => {
           </div>
         </div>
 
-        <div className="mt-6 text-right">
+        <div className="mt-6 text-center">
           <button
             type="submit"
-            data-testid="submit-poll"
-            className="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
+            disabled={isSubmitDisabled}
+
+            className={`${
+              isSubmitDisabled ? "button-disabled" : "button-enabled"
+            }`}
           >
             Submit
           </button>

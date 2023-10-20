@@ -48,14 +48,16 @@ const PollPage = ({ dispatch, authenticatedUser, question, author }) => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mt-9">Poll by {author.id}</h1>
+      <div className="flex justify-center">
+        <h1 className="text-3xl font-bold mt-9 mb-6">Poll by {author.id}</h1>
+      </div>
 
       <div className="flex justify-center">
         <img src={author.avatarURL} alt="Profile" className="h-24 w-24" />
       </div>
 
       <div className="flex justify-center">
-        <h2 className="text-2xl font-bold mt-6">Would you rather?</h2>
+        <h2 className="text-2xl font-bold mt-20">Would You Rather?</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-4 mt-4">
@@ -63,14 +65,14 @@ const PollPage = ({ dispatch, authenticatedUser, question, author }) => {
           onClick={handleOptionOne}
           disabled={hasVoted}
           className={
-            "p-2 rounded-xl bg-zinc-100 hover:shadow-xl transition " +
+            "rounded-xl bg-zinc-100 hover:shadow-xl transition " +
             (hasVotedForOptionOne ? "bg-lime-400" : "")
           }
         >
           <div className={hasVotedForOptionOne ? "chosen" : ""}>
-            <p className="font-bold mb-2">{question.optionOne.text}</p>
+            <p className="font-bold mb-0">{question.optionOne.text}</p>
             {!hasVoted && (
-              <p className="underline underline-offset-4 mb-3">Click</p>
+              <p className="underline underline-offset-4">Click</p>
             )}
             {hasVoted && (
               <p className="text-xs">
@@ -116,7 +118,6 @@ const mapStateToProps = ({ authenticatedUser, users, questions }) => {
     return { authenticatedUser, question, author };
   } catch (e) {
     return <Navigate to="/404" />;
-    // throw new Error(`Question or user is not found.\n ${e}`);
   }
 };
 

@@ -44,7 +44,7 @@ const Login = ({ dispatch, loggedIn }) => {
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-2">
             <label
-              for="email"
+              htmlFor="email"
               className="block text-sm font-semibold text-gray-800"
             >
               Username
@@ -60,7 +60,7 @@ const Login = ({ dispatch, loggedIn }) => {
           </div>
           <div className="mb-2">
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm font-semibold text-gray-800"
             >
               Password
