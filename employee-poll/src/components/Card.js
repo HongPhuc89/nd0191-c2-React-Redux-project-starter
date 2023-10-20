@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Card = ({ question, author }) => {
-  return (
+    return (
     <Link to={"questions/" + question.id}>
       <div className="m-3 p-2 rounded-xl shadow-md hover:shadow-xl transition bg-gray-100 max-w-sm mx-auto flex items-center space-x-4">
         <div className="shrink-0">

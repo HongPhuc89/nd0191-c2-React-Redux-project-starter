@@ -32,7 +32,7 @@ export function handleAddQuestion(firstOption, secondOption) {
   return (dispatch, getState) => {
     const { authenticatedUser } = getState();
 
-    return saveQuestion(firstOption, secondOption, authenticatedUser).then(
+    return saveQuestion(firstOption, secondOption, authenticatedUser.id).then(
       (question) => {
         dispatch(addQuestion(question));
         dispatch(addUserQuestion(question));

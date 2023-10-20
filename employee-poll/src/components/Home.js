@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
 import QuestionList from "./QuestionList";
-import Card from "./Card";
 
-const Dashboard = ({ authenticatedUser, questions, users }) => {
+const Home = ({ authenticatedUser, questions, users }) => {
   const unanswered = (question) =>
     !question.optionOne.votes.includes(authenticatedUser.id) &&
     !question.optionTwo.votes.includes(authenticatedUser.id);
@@ -13,8 +12,18 @@ const Dashboard = ({ authenticatedUser, questions, users }) => {
 
   return (
     <div>
-      <QuestionList title={"New Questions"} questions={questions} users={users}  questionFilter={unanswered}/>
-      <QuestionList title={"Answered Questions"} questions={questions} users={users}  questionFilter={answered}/>
+      <QuestionList
+        title={"New Questions"}
+        questions={questions}
+        users={users}
+        questionFilter={unanswered}
+      />
+      <QuestionList
+        title={"Answered Questions"}
+        questions={questions}
+        users={users}
+        questionFilter={answered}
+      />
     </div>
   );
 };
@@ -25,4 +34,4 @@ const mapStateToProps = ({ authenticatedUser, questions, users }) => ({
   users,
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Home);
