@@ -65,7 +65,7 @@ const PollPage = ({ dispatch, authenticatedUser, question, author }) => {
           onClick={handleOptionOne}
           disabled={hasVoted}
           className={
-            "rounded-xl bg-zinc-100 hover:shadow-xl transition " +
+            "rounded-xl bg-zinc-100 hover:shadow-xl transition" +
             (hasVotedForOptionOne ? "bg-lime-400" : "")
           }
         >
@@ -87,7 +87,7 @@ const PollPage = ({ dispatch, authenticatedUser, question, author }) => {
           onClick={handleOptionTwo}
           disabled={hasVoted}
           className={
-            "p-2 rounded-xl bg-zinc-100 hover:shadow-xl transition " +
+            "p-2 rounded-xl bg-zinc-100 hover:shadow-xl transition" +
             (hasVotedForOptionTwo ? "bg-lime-400" : "")
           }
         >

@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
+import UserInRow from "./UserInRow";
 
 const LeaderBoard = ({ users }) => {
   return (
     <div>
       <div className="flex justify-center">
-        <h1 className="text-3xl font-bold mt-9">LeaderBoard</h1>
+        <h1 className="text-3xl font-bold mt-9">Leader Board</h1>
       </div>
 
       <table className="border-collapse table-auto w-full mt-6">
@@ -24,15 +25,8 @@ const LeaderBoard = ({ users }) => {
         <tbody className="bg-white">
           {users.map((user) => (
             <tr key={user.id}>
-              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400 flex">
-              <div className="w-10 h-10">
-                <img src={user.avatarURL} alt="Avatar"  className="w-full h-full object-cover rounded-full"/>
-              </div>
-              <div className=" ml-4">
-              <span className="font-bold">{user.name}</span>
-                <br />
-                {user.id}
-              </div>
+              <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <UserInRow user={user}/>
 
               </td>
               <td className="border p-4 pl-8 text-slate-500 dark:text-slate-400">

@@ -31,7 +31,7 @@ const Nav = ({ dispatch, authenticatedUserId, authenticatedUserAvatar }) => {
       <div className="w-10 h-10">
         <img src={authenticatedUserAvatar} alt="Avatar"  className="w-full h-full object-cover rounded-full"/>
       </div>
-      <button onClick={logout} className="text-gray-400">Logout</button>
+      <button onClick={logout} className="text-gray-400 hover:text-red-900">Logout</button>
     </nav>
   );
 };
