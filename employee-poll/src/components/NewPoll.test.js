@@ -41,5 +41,6 @@ describe("NewPoll", () => {
         fireEvent.change(secondOptionInputElement, {target: {value: 'Tennis'}});
         expect(firstOptionInputElement.value).toBe("Football");
         expect(secondOptionInputElement.value).toBe("Tennis");
+
     });
 });
