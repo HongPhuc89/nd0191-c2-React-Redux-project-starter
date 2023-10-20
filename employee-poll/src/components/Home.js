@@ -12,6 +12,9 @@ const Home = ({ authenticatedUser, questions, users }) => {
 
   return (
     <div>
+      <h1 data-testid="employee-polls-heading" className="text-3xl font-semibold text-center text-black-700">
+          Employee Polls
+        </h1>
       <QuestionList
         title={"New Questions"}
         questions={questions}
@@ -19,7 +22,8 @@ const Home = ({ authenticatedUser, questions, users }) => {
         questionFilter={unanswered}
       />
       <QuestionList
-        title={"Answered Questions"}
+        title={"Done"}
+
         questions={questions}
         users={users}
         questionFilter={answered}

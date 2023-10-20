@@ -33,7 +33,7 @@ function App({ dispatch, loggedIn }) {
           }
         />
         <Route
-          path="/leader-board"
+          path="/leaderboard"
           exact
           element={
             <AuthenticatedRoute>
