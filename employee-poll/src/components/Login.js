@@ -5,8 +5,8 @@ import { handleLogin } from "../actions/authenticateUser";
 import loginLogo from "./../asserts/images/loginLogo.png";
 
 const Login = ({ dispatch, loggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("tylermcginnis");
+  const [password, setPassword] = useState("abc321");
   const [error, setError] = useState("");
 
   const isSubmitDisabled = !username || !password;

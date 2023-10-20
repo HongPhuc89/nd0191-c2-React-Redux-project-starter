@@ -47,7 +47,7 @@ Object {
                   id="username"
                   name="username"
                   type="text"
-                  value=""
+                  value="tylermcginnis"
                 />
               </div>
               <div
@@ -65,16 +65,15 @@ Object {
                   id="password"
                   name="password"
                   type="password"
-                  value=""
+                  value="abc321"
                 />
               </div>
               <div
                 class="mt-6 text-center"
               >
                 <button
-                  class="bg-gray-200 px-5 py-2.5 text-sm leading-5 rounded-md select-none"
+                  class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md select-none"
                   data-testid="submit"
-                  disabled=""
                   type="submit"
                 >
                   Login
@@ -129,7 +128,7 @@ Object {
                 id="username"
                 name="username"
                 type="text"
-                value=""
+                value="tylermcginnis"
               />
             </div>
             <div
@@ -147,16 +146,15 @@ Object {
                 id="password"
                 name="password"
                 type="password"
-                value=""
+                value="abc321"
               />
             </div>
             <div
               class="mt-6 text-center"
             >
               <button
-                class="bg-gray-200 px-5 py-2.5 text-sm leading-5 rounded-md select-none"
+                class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md select-none"
                 data-testid="submit"
-                disabled=""
                 type="submit"
               >
                 Login
